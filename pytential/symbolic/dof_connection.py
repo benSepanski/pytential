@@ -28,7 +28,7 @@ from meshmode.dof_array import DOFArray
 import numpy as np  # noqa: F401
 from pytools import memoize_in
 
-import loopy as lp
+import loopyy as lp
 
 
 __doc__ = """

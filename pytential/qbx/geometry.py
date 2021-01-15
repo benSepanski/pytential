@@ -30,8 +30,8 @@ from meshmode.array_context import PyOpenCLArrayContext
 from meshmode.dof_array import flatten, thaw
 from boxtree.tools import DeviceDataRecord
 from boxtree.pyfmmlib_integration import FMMLibRotationDataInterface
-import loopy as lp
-from loopy.version import MOST_RECENT_LANGUAGE_VERSION
+import loopyy as lp
+from loopyy.version import MOST_RECENT_LANGUAGE_VERSION
 from cgen import Enum
 
 

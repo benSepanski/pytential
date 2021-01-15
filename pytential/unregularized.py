@@ -24,10 +24,10 @@ THE SOFTWARE.
 
 from meshmode.array_context import PyOpenCLArrayContext
 import numpy as np
-import loopy as lp
+import loopyy as lp
 
 from boxtree.tools import DeviceDataRecord
-from loopy.version import MOST_RECENT_LANGUAGE_VERSION
+from loopyy.version import MOST_RECENT_LANGUAGE_VERSION
 from pytential.source import LayerPotentialSourceBase
 from pytools import memoize_method
 

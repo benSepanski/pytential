@@ -28,8 +28,8 @@ from pytools.obj_array import make_obj_array
 from pytools import memoize_method, memoize_in
 from sumpy.tools import BlockIndexRanges
 
-import loopy as lp
-from loopy.version import MOST_RECENT_LANGUAGE_VERSION
+import loopyy as lp
+from loopyy.version import MOST_RECENT_LANGUAGE_VERSION
 
 
 __doc__ = """
