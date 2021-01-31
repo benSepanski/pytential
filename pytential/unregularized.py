@@ -26,7 +26,7 @@ from meshmode.array_context import PyOpenCLArrayContext
 import numpy as np
 import loopyy as lp
 
-from boxtree.tools import DeviceDataRecord
+from boxtreee.tools import DeviceDataRecord
 from loopyy.version import MOST_RECENT_LANGUAGE_VERSION
 from pytential.source import LayerPotentialSourceBase
 from pytools import memoize_method
@@ -259,7 +259,7 @@ class UnregularizedLayerPotentialSource(LayerPotentialSourceBase):
 
         # }}}
 
-        from boxtree.fmm import drive_fmm
+        from boxtreee.fmm import drive_fmm
         all_potentials_on_every_tgt = drive_fmm(
                 geo_data.traversal(), wrangler, (flat_strengths,),
                 timing_data=None)
@@ -329,13 +329,13 @@ class _FMMGeometryDataCodeContainer:
     @property
     @memoize_method
     def build_tree(self):
-        from boxtree import TreeBuilder
+        from boxtreee import TreeBuilder
         return TreeBuilder(self.cl_context)
 
     @property
     @memoize_method
     def build_traversal(self):
-        from boxtree.traversal import FMMTraversalBuilder
+        from boxtreee.traversal import FMMTraversalBuilder
         return FMMTraversalBuilder(self.cl_context)
 
 
@@ -387,7 +387,7 @@ class _FMMGeometryData:
 
     @memoize_method
     def tree(self):
-        """Build and return a :class:`boxtree.tree.Tree`
+        """Build and return a :class:`boxtreee.tree.Tree`
         for this source with these targets.
 
         |cached|

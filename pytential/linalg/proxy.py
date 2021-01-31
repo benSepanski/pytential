@@ -53,8 +53,8 @@ def partition_by_nodes(actx, discr,
     of points, but will split elements across different ranges.
 
     :arg discr: a :class:`meshmode.discretization.Discretization`.
-    :arg tree_kind: if not *None*, it is passed to :class:`boxtree.TreeBuilder`.
-    :arg max_nodes_in_box: passed to :class:`boxtree.TreeBuilder`.
+    :arg tree_kind: if not *None*, it is passed to :class:`boxtreee.TreeBuilder`.
+    :arg max_nodes_in_box: passed to :class:`boxtreee.TreeBuilder`.
 
     :return: a :class:`sumpy.tools.BlockIndexRanges`.
     """
@@ -64,8 +64,8 @@ def partition_by_nodes(actx, discr,
         max_nodes_in_box = 32
 
     if tree_kind is not None:
-        from boxtree import box_flags_enum
-        from boxtree import TreeBuilder
+        from boxtreee import box_flags_enum
+        from boxtreee import TreeBuilder
 
         builder = TreeBuilder(actx.context)
 
@@ -387,12 +387,12 @@ def gather_block_neighbor_points(actx, discr, indices, pxycenters, pxyradii,
         for idim in range(discr.ambient_dim)])
 
     # construct tree
-    from boxtree import TreeBuilder
+    from boxtreee import TreeBuilder
     builder = TreeBuilder(actx.context)
     tree, _ = builder(actx.queue, sources,
             max_particles_in_box=max_nodes_in_box)
 
-    from boxtree.area_query import AreaQueryBuilder
+    from boxtreee.area_query import AreaQueryBuilder
     builder = AreaQueryBuilder(actx.context)
     query, _ = builder(actx.queue, tree, pxycenters, pxyradii)
 

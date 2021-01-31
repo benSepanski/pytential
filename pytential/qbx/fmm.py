@@ -30,7 +30,7 @@ from sumpy.fmm import (SumpyExpansionWranglerCodeContainer,
 from pytools import memoize_method
 from pytential.qbx.interactions import P2QBXLFromCSR, M2QBXL, L2QBXL, QBXL2P
 
-from boxtree.fmm import TimingRecorder
+from boxtreee.fmm import TimingRecorder
 from pytools import log_process, ProcessLogger
 
 import logging
@@ -100,7 +100,7 @@ class QBXSumpyExpansionWranglerCodeContainer(SumpyExpansionWranglerCodeContainer
 
 class QBXExpansionWrangler(SumpyExpansionWrangler):
     """A specialized implementation of the
-    :class:`boxtree.fmm.ExpansionWranglerInterface` for the QBX FMM.
+    :class:`boxtreee.fmm.ExpansionWranglerInterface` for the QBX FMM.
     The conventional ('point') FMM is carried out on a filtered
     set of targets
     (see :meth:`pytential.qbx.geometry.QBXFMMGeometryData.\
@@ -390,7 +390,7 @@ def drive_fmm(expansion_wrangler, src_weight_vecs, timing_data=None,
 
     :arg geo_data: A :class:`pytential.qbx.geometry.QBXFMMGeometryData` instance.
     :arg expansion_wrangler: An object exhibiting the
-        :class:`boxtree.fmm.ExpansionWranglerInterface`.
+        :class:`boxtreee.fmm.ExpansionWranglerInterface`.
     :arg src_weight_vecs: A sequence of source 'density/weights/charges'.
         Passed unmodified to *expansion_wrangler*.
     :arg timing_data: Either *None* or a dictionary that collects
@@ -398,7 +398,7 @@ def drive_fmm(expansion_wrangler, src_weight_vecs, timing_data=None,
 
     Returns the potentials computed by *expansion_wrangler*.
 
-    See also :func:`boxtree.fmm.drive_fmm`.
+    See also :func:`boxtreee.fmm.drive_fmm`.
     """
     wrangler = expansion_wrangler
 

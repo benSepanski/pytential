@@ -32,7 +32,7 @@ from meshmode.array_context import PyOpenCLArrayContext
 import numpy as np
 import pyopencl as cl
 
-from boxtree.tools import ConstantOneExpansionWrangler
+from boxtreee.tools import ConstantOneExpansionWrangler
 from pytential.qbx import QBXLayerPotentialSource
 from sumpy.kernel import LaplaceKernel, HelmholtzKernel
 from pytential import bind, sym, norm  # noqa
@@ -715,7 +715,7 @@ def test_cost_model_correctness(ctx_factory, dim, off_surface,
     # Construct targets.
     if off_surface:
         from pytential.target import PointsTarget
-        from boxtree.tools import make_uniform_particle_array
+        from boxtreee.tools import make_uniform_particle_array
         ntargets = 10 ** 3
         targets = PointsTarget(
                 make_uniform_particle_array(queue, ntargets, dim, np.float))

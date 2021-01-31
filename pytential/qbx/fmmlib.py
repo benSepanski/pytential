@@ -24,14 +24,14 @@ import numpy as np
 from pytools import Record, memoize_method
 import pyopencl as cl  # noqa
 import pyopencl.array  # noqa: F401
-from boxtree.pyfmmlib_integration import FMMLibExpansionWrangler
+from boxtreee.pyfmmlib_integration import FMMLibExpansionWrangler
 from sumpy.kernel import (
         LaplaceKernel, HelmholtzKernel, AxisTargetDerivative,
         DirectionalSourceDerivative)
 import pytential.qbx.target_specific as ts
 
 
-from boxtree.tools import return_timing_data
+from boxtreee.tools import return_timing_data
 from pytools import log_process
 
 import logging

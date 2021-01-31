@@ -28,8 +28,8 @@ from pytools import memoize_method
 from pytools.obj_array import obj_array_vectorize
 from meshmode.array_context import PyOpenCLArrayContext
 from meshmode.dof_array import flatten, thaw
-from boxtree.tools import DeviceDataRecord
-from boxtree.pyfmmlib_integration import FMMLibRotationDataInterface
+from boxtreee.tools import DeviceDataRecord
+from boxtreee.pyfmmlib_integration import FMMLibRotationDataInterface
 import loopyy as lp
 from loopyy.version import MOST_RECENT_LANGUAGE_VERSION
 from cgen import Enum
@@ -147,7 +147,7 @@ class QBXFMMGeometryDataCodeContainer(TreeCodeContainerMixin):
     @property
     @memoize_method
     def build_traversal(self):
-        from boxtree.traversal import FMMTraversalBuilder
+        from boxtreee.traversal import FMMTraversalBuilder
         return FMMTraversalBuilder(
                 self.cl_context,
                 well_sep_is_n_away=self._well_sep_is_n_away,
@@ -202,7 +202,7 @@ class QBXFMMGeometryDataCodeContainer(TreeCodeContainerMixin):
     @property
     @memoize_method
     def build_leaf_to_ball_lookup(self):
-        from boxtree.area_query import LeavesToBallsLookupBuilder
+        from boxtreee.area_query import LeavesToBallsLookupBuilder
         return LeavesToBallsLookupBuilder(self.cl_context)
 
     @property
@@ -263,7 +263,7 @@ class QBXFMMGeometryDataCodeContainer(TreeCodeContainerMixin):
     @property
     @memoize_method
     def rotation_classes_builder(self):
-        from boxtree.rotation_classes import RotationClassesBuilder
+        from boxtreee.rotation_classes import RotationClassesBuilder
         return RotationClassesBuilder(self.cl_context)
 
 # }}}
@@ -369,7 +369,7 @@ class QBXFMMGeometryData(FMMLibRotationDataInterface):
     .. automethod:: plot()
 
     The following methods implement the
-    :class:`boxtree.pyfmmlib_integration.FMMLibRotationDataInterface`.
+    :class:`boxtreee.pyfmmlib_integration.FMMLibRotationDataInterface`.
 
     .. method:: m2l_rotation_lists()
     .. method:: m2l_rotation_angles()
@@ -526,7 +526,7 @@ class QBXFMMGeometryData(FMMLibRotationDataInterface):
 
     @memoize_method
     def tree(self):
-        """Build and return a :class:`boxtree.Tree`
+        """Build and return a :class:`boxtreee.Tree`
         for this source with these targets.
 
         |cached|
@@ -589,10 +589,10 @@ class QBXFMMGeometryData(FMMLibRotationDataInterface):
 
     @memoize_method
     def traversal(self, merge_close_lists=True):
-        """Return a :class:`boxtree.traversal.FMMTraversalInfo`.
+        """Return a :class:`boxtreee.traversal.FMMTraversalInfo`.
 
         :arg merge_close_lists: Use merged close lists. (See
-            :meth:`boxtree.traversal.FMMTraversalInfo.merge_close_lists`)
+            :meth:`boxtreee.traversal.FMMTraversalInfo.merge_close_lists`)
 
         |cached|
         """
@@ -769,7 +769,7 @@ class QBXFMMGeometryData(FMMLibRotationDataInterface):
         if a center needs to be used, but none was found.
         See :meth:`center_to_tree_targets` for the reverse look-up table.
 
-        Shape: ``[ntargets]`` of :attr:`boxtree.Tree.particle_id_dtype`, with extra
+        Shape: ``[ntargets]`` of :attr:`boxtreee.Tree.particle_id_dtype`, with extra
         values from :class:`target_state` allowed. Targets occur in user order.
         """
         from pytential.qbx.target_assoc import associate_targets_to_qbx_centers
@@ -850,7 +850,7 @@ class QBXFMMGeometryData(FMMLibRotationDataInterface):
     @log_process(logger)
     def non_qbx_box_target_lists(self):
         """Build a list of targets per box that don't need to bother with QBX.
-        Returns a :class:`boxtree.tree.FilteredTargetListsInTreeOrder`.
+        Returns a :class:`boxtreee.tree.FilteredTargetListsInTreeOrder`.
         (I.e. a new target order is created for these targets, as we expect
         there to be many of them.)
 
@@ -929,7 +929,7 @@ class QBXFMMGeometryData(FMMLibRotationDataInterface):
             global_flags = self.global_qbx_flags().get(queue=queue)
 
             tree = self.tree().get(queue=queue)
-            from boxtree.visualization import TreePlotter
+            from boxtreee.visualization import TreePlotter
             tp = TreePlotter(tree)
             tp.draw_tree()
 

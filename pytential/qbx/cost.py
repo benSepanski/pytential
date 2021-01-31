@@ -35,7 +35,7 @@ from pymbolic import var, evaluate
 from pytools import memoize_method
 from functools import partial
 
-from boxtree.cost import (
+from boxtreee.cost import (
     FMMTranslationCostModel, AbstractFMMCostModel as BaseAbstractFMMCostModel,
     FMMCostModel, _PythonFMMCostModel
 )
@@ -54,7 +54,7 @@ __doc__ = """
    notice is removed.
 
 This module helps predict the running time of each step of QBX, as an extension of
-the similar module :mod:`boxtree.cost` in boxtree.
+the similar module :mod:`boxtreee.cost` in boxtreee.
 
 :class:`QBXTranslationCostModel` describes the translation or evaluation cost of a
 single operation. For example, *m2qbxl* describes the cost for translating a single
@@ -103,7 +103,7 @@ To get the cost from `BoundExpression`, refer to
 Utilities
 ^^^^^^^^^
 
-.. automethod:: boxtree.cost.AbstractFMMCostModel.aggregate_over_boxes
+.. automethod:: boxtreee.cost.AbstractFMMCostModel.aggregate_over_boxes
 
 .. automethod:: AbstractQBXCostModel.get_unit_calibration_params
 """
@@ -286,7 +286,7 @@ class AbstractQBXCostModel(BaseAbstractFMMCostModel):
         function can be used for process_* methods in this class.
 
         This method overwrite the method in parent
-        :class:`boxtree.cost.AbstractFMMCostModel` to support operations specific to
+        :class:`boxtreee.cost.AbstractFMMCostModel` to support operations specific to
         QBX.
 
         :arg queue: If not None, the cost factor arrays will be transferred to device

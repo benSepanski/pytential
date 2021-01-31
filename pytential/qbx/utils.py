@@ -24,12 +24,12 @@ THE SOFTWARE.
 
 
 import numpy as np
-from boxtree.tree import Tree
+from boxtreee.tree import Tree
 from meshmode.array_context import PyOpenCLArrayContext
 import pyopencl as cl
 import pyopencl.array # noqa
 from pytools import memoize_method
-from boxtree.pyfmmlib_integration import FMMLibRotationDataInterface
+from boxtreee.pyfmmlib_integration import FMMLibRotationDataInterface
 
 import logging
 logger = logging.getLogger(__name__)
@@ -75,17 +75,17 @@ class TreeCodeContainer:
 
     @memoize_method
     def build_tree(self):
-        from boxtree.tree_build import TreeBuilder
+        from boxtreee.tree_build import TreeBuilder
         return TreeBuilder(self.array_context.context)
 
     @memoize_method
     def peer_list_finder(self):
-        from boxtree.area_query import PeerListFinder
+        from boxtreee.area_query import PeerListFinder
         return PeerListFinder(self.array_context.context)
 
     @memoize_method
     def particle_list_filter(self):
-        from boxtree.tree import ParticleListFilter
+        from boxtreee.tree import ParticleListFilter
         return ParticleListFilter(self.array_context.context)
 
 # }}}
@@ -145,7 +145,7 @@ class TreeWranglerBase:
 # {{{ tree-with-metadata: data structure
 
 class TreeWithQBXMetadata(Tree):
-    """A subclass of :class:`boxtree.tree.Tree`. Has all of that class's
+    """A subclass of :class:`boxtreee.tree.Tree`. Has all of that class's
     attributes, along with the following:
 
     .. attribute:: nqbxpanels

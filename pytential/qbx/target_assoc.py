@@ -29,9 +29,9 @@ from pytools import memoize_method
 import pyopencl as cl
 import pyopencl.array # noqa
 
-from boxtree.tools import DeviceDataRecord
-from boxtree.area_query import AreaQueryElementwiseTemplate
-from boxtree.tools import InlineBinarySearch
+from boxtreee.tools import DeviceDataRecord
+from boxtreee.area_query import AreaQueryElementwiseTemplate
+from boxtreee.tools import InlineBinarySearch
 from cgen import Enum
 from meshmode.array_context import PyOpenCLArrayContext
 from meshmode.dof_array import flatten
@@ -489,7 +489,7 @@ class TargetAssociationCodeContainer(TreeCodeContainerMixin):
 
     @memoize_method
     def space_invader_query(self):
-        from boxtree.area_query import SpaceInvaderQueryBuilder
+        from boxtreee.area_query import SpaceInvaderQueryBuilder
         return SpaceInvaderQueryBuilder(self.cl_context)
 
     def get_wrangler(self, actx: PyOpenCLArrayContext):

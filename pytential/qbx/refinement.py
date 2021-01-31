@@ -32,8 +32,8 @@ import numpy as np
 import pyopencl as cl
 
 from pytools import memoize_method
-from boxtree.area_query import AreaQueryElementwiseTemplate
-from boxtree.tools import InlineBinarySearch
+from boxtreee.area_query import AreaQueryElementwiseTemplate
+from boxtreee.tools import InlineBinarySearch
 from pytential.qbx.utils import (
         QBX_TREE_C_PREAMBLE, QBX_TREE_MAKO_DEFS, TreeWranglerBase,
         TreeCodeContainerMixin)
